@@ -1,26 +1,19 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import fetch from 'node-fetch'; // ✅ Important fix
-
-dotenv.config();
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 const PORT = 3000;
 
-app.use(express.static('./'));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-app.get('/contributions', async (req, res) => {
-  const username = req.query.user;
-  const response = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}`);
-  
-  if (!response.ok) {
-    return res.status(500).json({ error: 'Failed to fetch GitHub contributions' });
-  }
+app.use(express.static(__dirname));
 
-  const data = await response.json();
-  res.json(data);
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(`🌐 Open http://localhost:${PORT}`);
 });
