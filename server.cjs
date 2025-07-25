@@ -4,7 +4,7 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 1306;
 
 // Middleware
 app.use(cors());
@@ -46,5 +46,5 @@ app.get('/', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`HOSTING HOSTING!! SERVER IS LIVE AT http://localhost:${PORT}`);
 });
