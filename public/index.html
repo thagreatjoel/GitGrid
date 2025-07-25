@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GitHub API Docs - gh-graphify</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    section {
+      padding: 3rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: #81c784;
+      margin-bottom: 3rem;
+    }
+    .api-box {
+      background-color: #1e1e1e;
+      border: 1px solid #2c2c2c;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .api-box h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #90caf9;
+    }
+    .description {
+      color: #bdbdbd;
+      margin-bottom: 0.5rem;
+    }
+    .method-url {
+      margin-bottom: 1rem;
+    }
+    .method-url strong {
+      color: #81c784;
+    }
+    pre {
+      background-color: #2c2c2c;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      margin: 0;
+    }
+    a {
+      color: #90caf9;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .api-box h2 { font-size: 1.3rem; }
+      pre { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<section>
+  <h1>📘 GitHub API Documentation</h1>
+
+  <!-- API BOXES START -->
+
+  <div class="api-box">
+    <h2>/api/activity</h2>
+    <p class="description">Get recent GitHub activity of a user.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/activity?user=thagreatjoel">/api/activity?user=thagreatjoel</a></p>
+    <pre>{
+  "user": "thagreatjoel",
+  "recentActivity": [
+    {
+      "type": "PushEvent",
+      "repo": "joel/gh-graphify",
+      "created_at": "2025-07-23T12:45:00Z"
+    }
+  ]
+}</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/followers</h2>
+    <p class="description">Get follower count of a user.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/followers?user=thagreatjoel">/api/followers?user=thagreatjoel</a></p>
+    <pre>{ "user": "thagreatjoel", "followers": 42 }</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/repo</h2>
+    <p class="description">Get all public repositories of a user.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/repo?user=thagreatjoel">/api/repo?user=thagreatjoel</a></p>
+    <pre>{ "repos": ["gh-graphify", "gh-utils"] }</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/stats</h2>
+    <p class="description">Get basic stats about a user.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/stats?user=thagreatjoel">/api/stats?user=thagreatjoel</a></p>
+    <pre>{ "public_repos": 8, "followers": 42 }</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/lang</h2>
+    <p class="description">Get languages used across repos.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/lang?user=thagreatjoel">/api/lang?user=thagreatjoel</a></p>
+    <pre>{ "JavaScript": 70, "HTML": 25 }</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/pin</h2>
+    <p class="description">Get pinned repos of a user.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/pin?user=thagreatjoel">/api/pin?user=thagreatjoel</a></p>
+    <pre>{ "pinned": ["gh-graphify", "cli-stats"] }</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/sizes</h2>
+    <p class="description">Get repo sizes in KB.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/sizes?user=thagreatjoel">/api/sizes?user=thagreatjoel</a></p>
+    <pre>{ "gh-graphify": 324, "gh-utils": 192 }</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/licenses</h2>
+    <p class="description">Get license types used across repos.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/licenses?user=thagreatjoel">/api/licenses?user=thagreatjoel</a></p>
+    <pre>{ "MIT": 4, "GPL": 2 }</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/gists</h2>
+    <p class="description">Get public gists of a user.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/gists?user=thagreatjoel">/api/gists?user=thagreatjoel</a></p>
+    <pre>{ "gists": ["https://gist.github.com/..."] }</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/commits</h2>
+    <p class="description">Get recent commits in a repo.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/commits?user=thagreatjoel&repo=gh-graphify">/api/commits?user=thagreatjoel&repo=gh-graphify</a></p>
+    <pre>{ "repo": "gh-graphify", "commits": [ ... ] }</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/topics</h2>
+    <p class="description">Get topics/tags of a repo.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/topics?user=thagreatjoel&repo=gh-graphify">/api/topics?user=thagreatjoel&repo=gh-graphify</a></p>
+    <pre>{ "topics": ["api", "github", "nodejs"] }</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/metrics</h2>
+    <p class="description">Get GitHub user metrics.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/metrics?user=thagreatjoel">/api/metrics?user=thagreatjoel</a></p>
+    <pre>{ "stars": 25, "followers": 42 }</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/blog</h2>
+    <p class="description">Get blog URL of a GitHub user.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/blog?user=thagreatjoel">/api/blog?user=thagreatjoel</a></p>
+    <pre>{ "blog": "https://joelblog.vercel.app" }</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/forkratio</h2>
+    <p class="description">Get ratio of forks to stars.</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/forkratio?user=thagreatjoel">/api/forkratio?user=thagreatjoel</a></p>
+    <pre>{ "forkRatio": 0.72 }</pre>
+  </div>
+
+  <div class="api-box">
+    <h2>/api/contrib</h2>
+    <p class="description">Get contribution activity (heatmap style).</p>
+    <p class="method-url"><strong>GET</strong> <a href="/api/contrib?user=thagreatjoel">/api/contrib?user=thagreatjoel</a></p>
+    <pre>{ "contributions": [ ... ] }</pre>
+  </div>
+
+</section>
+
+</body>
+</html>
